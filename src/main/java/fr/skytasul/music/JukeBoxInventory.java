@@ -373,7 +373,7 @@ public class JukeBoxInventory implements Listener{
 			profileField.set(headMeta, profile);
 		}catch (ReflectiveOperationException e) {
 			e.printStackTrace();
-			JukeBox.getInstance().getLogger().severe("An error occured during initialization of Radio item. Please report it to an administrator !");
+			JukeBox.getInstance().getLogger().severe("Een error is gebeurt tijdens het opstarten van de radio meld dit bij de dev/admins onmiddelijk!!");
 			item = new ItemStack(Material.TORCH);
 			headMeta = item.getItemMeta();
 		}
