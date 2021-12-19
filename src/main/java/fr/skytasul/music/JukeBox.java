@@ -277,7 +277,7 @@ public class JukeBox extends JavaPlugin implements Listener{
 				if (song == null) continue;
 				String n = getInternal(song);
 				if (internalNames.containsKey(n)) {
-					getLogger().warning("Song \"" + n + "\" is duplicated. Please delete one from the songs directory. File name: " + file.getName());
+					getLogger().warning("Liedje \"" + n + "\" is gedupliceerd. Verwijder aub 1 van de file manger. File naam: " + file.getName());
 					continue;
 				}
 				fileNames.put(file.getName(), song);
@@ -285,7 +285,7 @@ public class JukeBox extends JavaPlugin implements Listener{
 				if (file.getName().equals(songOnJoinName)) songOnJoin = song;
 			}
 		}
-		getLogger().info(internalNames.size() + " songs loadeds. Sorting by name... ");
+		getLogger().info(internalNames.size() + " Liedsjes geladen. Sorteren bij naam... ");
 		List<String> names = new ArrayList<>(internalNames.keySet());
 		Collections.sort(names, Collator.getInstance());
 		for (String str : names){
@@ -293,7 +293,7 @@ public class JukeBox extends JavaPlugin implements Listener{
 		}
 		
 		setMaxPage();
-		getLogger().info("Songs sorted ! " + songs.size() + " songs. Number of pages : " + maxPage);
+		getLogger().info("Liedjes gesorteerd " + songs.size() + " Liedjes. Aantal paginas : " + maxPage);
 		if (!songs.isEmpty()) playlist = new Playlist(songs.toArray(new Song[0]));
 
 		/* --------------------------------------------- PLAYERS ------- */
@@ -334,13 +334,13 @@ public class JukeBox extends JavaPlugin implements Listener{
 					YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, StandardCharsets.UTF_8));
 					defConfig.save(lang);
 					Lang.loadFromConfig(lang, defConfig);
-					getLogger().info("Created language file " + s);
+					getLogger().info("Taal file gemaakt " + s);
 					return defConfig;
 				}
 			} catch(IOException e) {
 				e.printStackTrace();
-				getLogger().severe("Couldn't create language file.");
-				getLogger().severe("This is a fatal error. Now disabling.");
+				getLogger().severe("Creeren taal file mislukt.");
+				getLogger().severe("Fatal error plugin is shutting down");
 				disable = true;
 				this.setEnabled(false);
 				return null;
@@ -350,12 +350,12 @@ public class JukeBox extends JavaPlugin implements Listener{
 		try {
 			Lang.saveFile(conf, lang);
 		}catch (IOException | ReflectiveOperationException e) {
-			getLogger().warning("Failed to save lang.yml.");
-			getLogger().warning("Report this stack trace to SkytAsul on SpigotMC.");
+			getLogger().warning("Gefaald om lang.yml op te slaan.");
+			getLogger().warning("Report dit aub bij de dev/admins");
 			e.printStackTrace();
 		}
 		Lang.loadFromConfig(lang, conf);
-		getLogger().info("Loaded language file " + s);
+		getLogger().info("Taal file geladen " + s);
 		return conf;
 	}
 
