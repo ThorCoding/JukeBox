@@ -47,7 +47,7 @@ public class CommandAdmin implements CommandExecutor{
 				JukeBox.getInstance().disableAll();
 				JukeBox.getInstance().initAll();
 			}catch (Exception ex){
-				sender.sendMessage("§cError while reloading. Please check the console and send the stacktrace to SkytAsul on SpigotMC.");
+				sender.sendMessage("§cError meld dit aub aan de server admins.");
 				ex.printStackTrace();
 			}
 			sender.sendMessage(Lang.RELOAD_FINISH);
@@ -60,7 +60,7 @@ public class CommandAdmin implements CommandExecutor{
 			}
 			OfflinePlayer pp = Bukkit.getOfflinePlayer(args[1]);
 			if (pp == null){
-				sender.sendMessage("§cUnknown player.");
+				sender.sendMessage("§cSpeler niet gevonden");
 				return false;
 			}
 			PlayerData pdata = JukeBox.getInstance().datas.getDatas(pp.getUniqueId());
@@ -107,7 +107,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				Player cp = Bukkit.getPlayer(args[1]);
 				if (cp == null){
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden.");
 					return false;
 				}
 				sender.sendMessage(stop(cp));
@@ -126,7 +126,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				Player cp = Bukkit.getPlayer(args[1]);
 				if (cp == null) {
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden");
 					return false;
 				}
 				toggle(cp);
@@ -135,14 +135,14 @@ public class CommandAdmin implements CommandExecutor{
 		
 		case "setitem":
 			if (!(sender instanceof Player)){
-				sender.sendMessage("§cYou have to be a player to do that.");
+				sender.sendMessage("§cJe hebt geen permisie om dit te doen");
 				return false;
 			}
 			ItemStack is = ((Player) sender).getInventory().getItemInHand();
 			if (is == null || is.getType() == Material.AIR){
 				JukeBox.getInstance().jukeboxItem = null;
 			}else JukeBox.getInstance().jukeboxItem = is;
-			sender.sendMessage("§aItem edited. Now : §2" + ((JukeBox.getInstance().jukeboxItem == null) ? "null" : JukeBox.getInstance().jukeboxItem.toString()));
+			sender.sendMessage("§aItem aangepast. Nu : §2" + ((JukeBox.getInstance().jukeboxItem == null) ? "null" : JukeBox.getInstance().jukeboxItem.toString()));
 			break;
 			
 		case "download":
@@ -155,7 +155,7 @@ public class CommandAdmin implements CommandExecutor{
 				if (!fileName.toLowerCase().endsWith(".nbs")) fileName += ".nbs";
 				File file = new File(JukeBox.songsFolder, fileName);
 				if (file.exists()) {
-					sender.sendMessage("§cThe file " + fileName + " already exists.");
+					sender.sendMessage("§cThe file " + fileName + " bestaat al.");
 					break;
 				}
 				String url = expandUrl(args[1]);
@@ -170,14 +170,14 @@ public class CommandAdmin implements CommandExecutor{
 						valid = false;
 					}finally {
 						stream.close();
-						if (!valid) sender.sendMessage("§cDownloaded file is not a nbs song file.");
+						if (!valid) sender.sendMessage("§cGedownloade file is geen nbs file.");
 					}
 					if (valid) {
-						sender.sendMessage("§aSong downloaded. To add it to the list, you must reload the plugin. (§o/amusic reload§r§a)");
+						sender.sendMessage("§aSong gedownload. Om het aan de lijst toe te voegen moet de plugin gereload worden. (§o/amusic reload§r§a)");
 					}else file.delete();
 				}
 			} catch (Throwable e) {
-				sender.sendMessage("§cError when downloading file.");
+				sender.sendMessage("§cError wanneer de file gedownload werd.");
 				e.printStackTrace();
 			}
 			break;
@@ -194,7 +194,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				Player cp = Bukkit.getPlayer(args[1]);
 				if (cp == null){
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden");
 					return false;
 				}
 				sender.sendMessage(shuffle(cp));
@@ -213,7 +213,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				Player cp = Bukkit.getPlayer(args[1]);
 				if (cp == null){
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevoden");
 					return false;
 				}
 				sender.sendMessage(particles(cp));
@@ -232,7 +232,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				Player cp = Bukkit.getPlayer(args[1]);
 				if (cp == null){
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden");
 					return false;
 				}
 				sender.sendMessage(join(cp));
@@ -251,7 +251,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				Player cp = Bukkit.getPlayer(args[1]);
 				if (cp == null){
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden");
 					return false;
 				}
 				sender.sendMessage(random(cp));
@@ -265,7 +265,7 @@ public class CommandAdmin implements CommandExecutor{
 			}
 			Player cp = Bukkit.getPlayer(args[1]);
 			if (cp == null){
-				sender.sendMessage("§cUnknown player.");
+				sender.sendMessage("§cSpeler niet gevonden");
 				return false;
 			}
 			pdata = JukeBox.getInstance().datas.getDatas(cp);
@@ -295,7 +295,7 @@ public class CommandAdmin implements CommandExecutor{
 			}else {
 				cp = Bukkit.getPlayer(args[1]);
 				if (cp == null){
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden");
 					return false;
 				}
 				sender.sendMessage(loop(cp));
@@ -313,11 +313,11 @@ public class CommandAdmin implements CommandExecutor{
 					JukeBox.getInstance().datas.getDatas(p).nextSong();
 					i++;
 				}
-				sender.sendMessage("§aNext song for " + i + "players.");
+				sender.sendMessage("§aVolgend nummer voor " + i + "spelers.");
 			}else {
 				cp = Bukkit.getPlayer(args[1]);
 				if (cp == null) {
-					sender.sendMessage("§cUnknown player.");
+					sender.sendMessage("§cSpeler niet gevonden.");
 					return false;
 				}
 				JukeBox.getInstance().datas.getDatas(cp).nextSong();
@@ -337,7 +337,7 @@ public class CommandAdmin implements CommandExecutor{
 	private String play(String[] args){
 		Player cp = Bukkit.getPlayer(args[1]);
 		if (cp == null) return "§cUnknown player.";
-		if (JukeBox.worlds && !JukeBox.worldsEnabled.contains(cp.getWorld().getName())) return "§cMusic isn't enabled in the world the player is into.";
+		if (JukeBox.worlds && !JukeBox.worldsEnabled.contains(cp.getWorld().getName())) return "§cMuziek is niet geactiveerd in de wereld waar de speler zit.";
 		Song song;
 		try{
 			int id = Integer.parseInt(args[2]);
@@ -395,7 +395,7 @@ public class CommandAdmin implements CommandExecutor{
 	private String random(Player cp){
 		PlayerData pdata = JukeBox.getInstance().datas.getDatas(cp);
 		Song song = pdata.playRandom();
-		if (song == null) return "§aShuffle: §cnothing to play";
+		if (song == null) return "§aShuffle: §cniets om af te spelen.";
 		return "§aShuffle: " + song.getTitle();
 	}
 	
