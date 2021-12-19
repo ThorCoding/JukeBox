@@ -26,7 +26,7 @@ public class CommandMusic implements CommandExecutor{
 		if (JukeBox.worlds && !JukeBox.worldsEnabled.contains(p.getWorld().getName())) return;
 		PlayerData pdata = JukeBox.getInstance().datas.getDatas(p);
 		if (pdata == null) {
-			p.sendMessage("§cLoading player... Try again!");
+			p.sendMessage("§cSpeler laden... porbeer opnieuw!");
 			return;
 		}
 		if (pdata.linked != null){
