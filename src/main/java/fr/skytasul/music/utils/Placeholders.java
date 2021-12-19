@@ -15,7 +15,7 @@ public class Placeholders extends PlaceholderExpansion {
 
 	public static void registerPlaceholders(){
 		new Placeholders().register();
-		JukeBox.getInstance().getLogger().info("Placeholders registered");
+		JukeBox.getInstance().getLogger().info("Placeholders geregistreerd.");
 	}
 	
 	private Placeholders() {}
@@ -27,7 +27,7 @@ public class Placeholders extends PlaceholderExpansion {
 	
 	@Override
 	public String getIdentifier() {
-		return "jukebox";
+		return "Greenfield Jukebox";
 	}
 	
 	@Override
@@ -48,7 +48,7 @@ public class Placeholders extends PlaceholderExpansion {
 	@Override
 	public String onRequest(OfflinePlayer p, String params) {
 		PlayerData pdata = JukeBox.getInstance().datas.getDatas(p.getUniqueId());
-		if (pdata == null) return "§c§lunknown player data";
+		if (pdata == null) return "§c§lOnbekende spelers data.";
 		if (params.startsWith("playeroptions_")) {
 			switch (params.substring(params.indexOf("_") + 1)) {
 			case "volume":
@@ -62,7 +62,7 @@ public class Placeholders extends PlaceholderExpansion {
 			case "loop":
 				return pdata.isRepeatEnabled() ? Lang.ENABLED : Lang.DISABLED;
 			default:
-				return "§c§lunknown option";
+				return "§c§lOnbekende optie.";
 			}
 		}else if (params.startsWith("active")) {
 			Song song = pdata.getListeningTo();
