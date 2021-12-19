@@ -15,47 +15,47 @@ import fr.skytasul.music.JukeBox;
 
 public class Lang{
 
-	public static String NEXT_PAGE = ChatColor.AQUA + "Next page";
-	public static String LATER_PAGE = ChatColor.AQUA + "Previous page";
-	public static String CURRENT_PAGE = ChatColor.DARK_AQUA + "§oPage %d of %d";
-	public static String PLAYER = ChatColor.RED + "You must be a player to do this command.";
-	public static String RELOAD_MUSIC = ChatColor.GREEN + "Music reloaded.";
-	public static String INV_NAME = ChatColor.LIGHT_PURPLE + "§lJukebox !";
-	public static String TOGGLE_PLAYING = ChatColor.GOLD + "Pause/play";
-	public static String VOLUME = ChatColor.BLUE + "Music volume : §b";
-	public static String RIGHT_CLICK = "§eRight click: decrease by 10%";
-	public static String LEFT_CLICK = "§eLeft click: increase by 10%";
-	public static String RANDOM_MUSIC = ChatColor.DARK_AQUA + "Random music";
-	public static String STOP = ChatColor.RED + "Stop the music";
-	public static String MUSIC_STOPPED = ChatColor.GREEN + "Music stopped.";
-	public static String ENABLE = "Enable";
-	public static String DISABLE = "Disable";
-	public static String ENABLED = "Enabled";
-	public static String DISABLED = "Disabled";
-	public static String TOGGLE_SHUFFLE_MODE = "{TOGGLE} the shuffle mode";
-	public static String TOGGLE_LOOP_MODE = "{TOGGLE} the loop mode";
-	public static String TOGGLE_CONNEXION_MUSIC = "{TOGGLE} music when connecting";
+	public static String NEXT_PAGE = ChatColor.AQUA + "Volgende pagina";
+	public static String LATER_PAGE = ChatColor.AQUA + "Vorige pagina.";
+	public static String CURRENT_PAGE = ChatColor.DARK_AQUA + "§oPagina %d van %d";
+	public static String PLAYER = ChatColor.RED + "Je moet een speler zijn om dit command uit te voeren";
+	public static String RELOAD_MUSIC = ChatColor.GREEN + "Muziek herladen";
+	public static String INV_NAME = ChatColor.LIGHT_PURPLE + "§lGreefield Jukebox !";
+	public static String TOGGLE_PLAYING = ChatColor.GOLD + "Pauze/play";
+	public static String VOLUME = ChatColor.BLUE + "Muziek volume : §b";
+	public static String RIGHT_CLICK = "§eRechter klik: om te verlagen met 10%";
+	public static String LEFT_CLICK = "§eLinker klik: verhoog met 10%";
+	public static String RANDOM_MUSIC = ChatColor.DARK_AQUA + "Random muziek.";
+	public static String STOP = ChatColor.RED + "Stop de muziek.";
+	public static String MUSIC_STOPPED = ChatColor.GREEN + "Muziek gestopt.";
+	public static String ENABLE = "Aan";
+	public static String DISABLE = "Uit";
+	public static String ENABLED = "Aan";
+	public static String DISABLED = "uit";
+	public static String TOGGLE_SHUFFLE_MODE = "{TOGGLE} de shuffle modus";
+	public static String TOGGLE_LOOP_MODE = "{TOGGLE} de loop modus";
+	public static String TOGGLE_CONNEXION_MUSIC = "{TOGGLE} muziek bij joinen.";
 	public static String TOGGLE_PARTICLES = "{TOGGLE} particles";
-	public static String MUSIC_PLAYING = ChatColor.GREEN + "Music while playing:";
-	public static String INCORRECT_SYNTAX = ChatColor.RED + "Incorrect syntax.";
-	public static String RELOAD_LAUNCH = ChatColor.GREEN + "Trying to reload.";
-	public static String RELOAD_FINISH = ChatColor.GREEN + "Reload finished.";
-	public static String AVAILABLE_COMMANDS = ChatColor.GREEN + "Available commands:";
-	public static String INVALID_NUMBER = ChatColor.RED + "Invalid number.";
-	public static String PLAYER_MUSIC_STOPPED = ChatColor.GREEN + "Music stopped for player: §b";
+	public static String MUSIC_PLAYING = ChatColor.GREEN + "Muziek tijdens het spelen:";
+	public static String INCORRECT_SYNTAX = ChatColor.RED + "Verkeerd argument.";
+	public static String RELOAD_LAUNCH = ChatColor.GREEN + "Proberen te herladen.";
+	public static String RELOAD_FINISH = ChatColor.GREEN + "Herlaad success.";
+	public static String AVAILABLE_COMMANDS = ChatColor.GREEN + "Alle commands:";
+	public static String INVALID_NUMBER = ChatColor.RED + "Onbekend nummer.";
+	public static String PLAYER_MUSIC_STOPPED = ChatColor.GREEN + "Muziek gestopt voor: §b";
 	public static String IN_PLAYLIST = ChatColor.BLUE + "§oIn Playlist";
 	public static String PLAYLIST_ITEM = ChatColor.LIGHT_PURPLE + "Playlists";
-	public static String OPTIONS_ITEM = ChatColor.AQUA + "Options";
-	public static String MENU_ITEM = ChatColor.GOLD + "Return to menu";
-	public static String CLEAR_PLAYLIST = ChatColor.RED + "Clear the current playlist";
-	public static String NEXT_ITEM = ChatColor.YELLOW + "Next song";
-	public static String CHANGE_PLAYLIST = ChatColor.GOLD + "§lSwitch playlist: §r";
-	public static String CHANGE_PLAYLIST_LORE = ChatColor.YELLOW + "Middle-click on a music disc\n§e to add/remove the song";
+	public static String OPTIONS_ITEM = ChatColor.AQUA + "Opties";
+	public static String MENU_ITEM = ChatColor.GOLD + "Terug naar menu.";
+	public static String CLEAR_PLAYLIST = ChatColor.RED + "De huidige playlist stoppen";
+	public static String NEXT_ITEM = ChatColor.YELLOW + "Volgend nummer.";
+	public static String CHANGE_PLAYLIST = ChatColor.GOLD + "§lVerander playlist: §r";
+	public static String CHANGE_PLAYLIST_LORE = ChatColor.YELLOW + "Middle-click on a music disc\n§e to add/remove the song. Middel klik op een music disc\n§e om een liedje toe te voegen/verwijderen.";
 	public static String PLAYLIST = ChatColor.DARK_PURPLE + "Playlist";
-	public static String FAVORITES = ChatColor.DARK_RED + "Favorites";
+	public static String FAVORITES = ChatColor.DARK_RED + "Favorieten";
 	public static String RADIO = ChatColor.DARK_AQUA + "Radio";
-	public static String UNAVAILABLE_RADIO = ChatColor.RED + "This action is unavailable while listening to the radio.";
-	public static String NONE = ChatColor.RED + "none";
+	public static String UNAVAILABLE_RADIO = ChatColor.RED + "Dit kan niet worden gebeurdt tijdens het luisteren van de radio.";
+	public static String NONE = ChatColor.RED + "geen";
 
 	public static void saveFile(YamlConfiguration cfg, File file) throws ReflectiveOperationException, IOException {
 		for (Field f : Lang.class.getDeclaredFields()){
@@ -77,13 +77,13 @@ public class Lang{
 					field.set(key, str);
 				}else inexistant.add(key);
 			}catch (Exception e) {
-				JukeBox.getInstance().getLogger().warning("Error when loading language value \"" + key + "\".");
+				JukeBox.getInstance().getLogger().warning("Error bij het laden van de taal \"" + key + "\".");
 				e.printStackTrace();
 				continue;
 			}
 		}
 		if (!inexistant.isEmpty())
-			JukeBox.getInstance().getLogger().warning("Found " + inexistant.size() + " inexistant string(s) in " + file.getName() + ": " + String.join(" ", inexistant));
+			JukeBox.getInstance().getLogger().warning("Gevonden " + inexistant.size() + " inexistant string(s) in " + file.getName() + ": " + String.join(" ", inexistant));
 	}
 	
 	private static final char COLOR_CHAR = '\u00A7';
