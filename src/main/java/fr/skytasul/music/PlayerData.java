@@ -493,7 +493,7 @@ public class PlayerData implements Listener{
 			for (String s : (List<String>) map.get("favorites")) {
 				Song song = songsName.get(s);
 				if (song == null) {
-					JukeBox.getInstance().getLogger().warning("Unknown song \"" + s + "\" for favorite playlist of " + pdata.getID().toString());
+					JukeBox.getInstance().getLogger().warning("Onbekend nummer \"" + s + "\" voor favoriete playlist van " + pdata.getID().toString());
 				}else pdata.addSong(song, false);
 			}
 			pdata.setPlaylist(Playlists.PLAYLIST, false);
