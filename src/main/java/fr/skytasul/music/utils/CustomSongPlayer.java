@@ -21,7 +21,7 @@ public class CustomSongPlayer extends RadioSongPlayer{
 		try {
 			super.setChannelMode(new StereoMode());
 		}catch (Exception ex) {
-			JukeBox.getInstance().getLogger().warning("It looks like you're using an old version of NoteBlockAPI. Please update as fast as possible to version 1.5.0 or greater.");
+			JukeBox.getInstance().getLogger().warning("Update de versie van noteblock api aub.");
 		}
 		if (JukeBox.useExtendedOctaveRange) super.setEnable10Octave(true);
 	}
